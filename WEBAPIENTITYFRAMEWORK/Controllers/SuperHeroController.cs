@@ -26,5 +26,16 @@ namespace WEBAPIENTITYFRAMEWORK.Controllers
 
             return Ok(heroes);
         }
+
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<List<SuperHero>>> GetHero(int id)
+        {
+            var hero = await _context.SuperHeroes.FindAsync(id);
+            if (hero == null) 
+                return NotFound("Hero not found.");
+
+            return Ok(hero);
+        }
     }
 }
