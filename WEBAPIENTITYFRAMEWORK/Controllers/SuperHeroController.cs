@@ -9,6 +9,10 @@ namespace WEBAPIENTITYFRAMEWORK.Controllers
     [ApiController]
     public class SuperHeroController : ControllerBase
     {
+
+
+
+
         [HttpGet]
         public async Task<ActionResult<List<SuperHero>>> GetAllHeroes()
         {
