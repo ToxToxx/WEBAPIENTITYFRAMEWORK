@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using WEBAPIENTITYFRAMEWORK.Data;
 using WEBAPIENTITYFRAMEWORK.Entities;
 
 
@@ -10,23 +12,17 @@ namespace WEBAPIENTITYFRAMEWORK.Controllers
     public class SuperHeroController : ControllerBase
     {
 
+        private readonly DataContext _context;
 
-
+        public SuperHeroController(DataContext context)
+        {
+            _context = context;
+        }
 
         [HttpGet]
         public async Task<ActionResult<List<SuperHero>>> GetAllHeroes()
         {
-            var heroes = new List<SuperHero>
-            {
-                new SuperHero
-                {
-                    Id = 1,
-                    Name = "Batman",
-                    FirstName = "Bruce",
-                    LastName = "Wayne",
-                    Place = "Gotham",
-                }
-            };
+            var heroes = await _context.SuperHeroes.ToListAsync();
 
             return Ok(heroes);
         }
