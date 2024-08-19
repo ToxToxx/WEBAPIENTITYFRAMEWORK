@@ -1,6 +1,10 @@
-@WEBAPIENTITYFRAMEWORK_HostAddress = http://localhost:5004
+@WEBAPIENTITYFRAMEWORK_HostAddress = https://localhost:7077
 
 GET {{WEBAPIENTITYFRAMEWORK_HostAddress}}/weatherforecast/
 Accept: application/json
+
+###
+
+GET {{WEBAPIENTITYFRAMEWORK_HostAddress}}/api/superhero
 
 ###
